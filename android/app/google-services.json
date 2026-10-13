@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "457431071811",
+    "project_id": "evantly-c20-online",
+    "storage_bucket": "evantly-c20-online.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457431071811:android:f73c43443ef7c1e97968f6",
+        "android_client_info": {
+          "package_name": "com.example.evently"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457431071811-974scd4vrfot488s2jm5j8bs0kll0fjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwfA53NS-_Zprntl74m4r-UeDj3oERxm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457431071811-974scd4vrfot488s2jm5j8bs0kll0fjh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457431071811-idoiniopso3ciuha6rrvjn4rprl70amr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventlyC20Online"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457431071811:android:aee5b67f027af2cc7968f6",
+        "android_client_info": {
+          "package_name": "com.example.evently_c20_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457431071811-974scd4vrfot488s2jm5j8bs0kll0fjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwfA53NS-_Zprntl74m4r-UeDj3oERxm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457431071811-974scd4vrfot488s2jm5j8bs0kll0fjh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457431071811-idoiniopso3ciuha6rrvjn4rprl70amr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventlyC20Online"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
