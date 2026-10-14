@@ -29,12 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Row(
               children: [
+                // Welcome message
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Welcome Back ✨"),
-                      SizedBox(height: 4),
+                      Text(
+                        "Welcome Back ✨",
+                        style: theme.textTheme.bodyMedium,
+                      ),
+                      const SizedBox(height: 4),
                       Text(
                         user.displayName ?? "",
                         style: theme.textTheme.titleLarge,
@@ -51,16 +55,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 26,
                   height: 26,
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
                     provider.locale.toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -73,17 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
               length: AppCategory.categories.length + 1,
               child: TabBar(
                 dividerColor: Colors.transparent,
-                indicator: BoxDecoration(color: Colors.transparent),
+                indicator: const BoxDecoration(color: Colors.transparent),
                 isScrollable: true,
                 onTap: (value) {
                   index = value;
                   setState(() {});
                 },
                 tabAlignment: TabAlignment.start,
-                padding: EdgeInsets.all(0),
-                labelPadding: EdgeInsets.all(8),
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.black,
+                padding: EdgeInsets.zero,
+                labelPadding: const EdgeInsets.all(8),
                 tabs: [
                   TabWidget(
                     category: AppCategory(
@@ -100,20 +102,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       category: e,
                       isSelected: index == categoryIndex,
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
             ),
 
             StreamBuilder(
-              stream: DbService.getEventsStream(index == 0? null : AppCategory.categories[index-1].id ),
+              stream: DbService.getEventsStream(
+                index == 0 ? null : AppCategory.categories[index - 1].id,
+              ),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Center(child: Text(snapshot.error.toString()));
+                  return Center(
+                    child: Text(
+                      snapshot.error.toString(),
+                      style: theme.textTheme.titleMedium,
+                    ),
+                  );
                 } else {
-                  List<EventModel> events =  [];
+                  List<EventModel> events = [];
                   for (var e in snapshot.data!.docs) {
                     var event = EventModel.fromJson(e.data());
                     events.add(event);
@@ -121,14 +130,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Expanded(
                     child: ListView.separated(
                       itemBuilder: (context, index) {
-                        return EventWidget(event: events[index],onTapFav: ()async {
-                          await DbService.toggleFav(events[index]);
-                          setState(() {
-
-                          });
-                        },);
+                        return EventWidget(
+                          event: events[index],
+                          onTapFav: () async {
+                            await DbService.toggleFav(events[index]);
+                            setState(() {});
+                          },
+                        );
                       },
-                      separatorBuilder: (context, index) => SizedBox(height: 8),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 8),
                       itemCount: events.length,
                     ),
                   );

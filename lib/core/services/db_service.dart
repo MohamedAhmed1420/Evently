@@ -7,14 +7,22 @@ class DbService {
   static var firebase = FirebaseFirestore.instance;
 
   static Future<void> addEvent(EventModel event) async {
-    var doc = await firebase.collection("Events").doc();
+    var doc = firebase.collection("Events").doc();
     event.id = doc.id;
-    doc.set(event.toJson());
+    await doc.set(event.toJson());
+  }
+
+  static Future<void> deleteEvent(String id) async {
+    await firebase.collection("Events").doc(id).delete();
+  }
+
+  static Future<void> updateEvent(EventModel event) async {
+    await firebase.collection("Events").doc(event.id).update(event.toJson());
   }
 
   static Future<List<EventModel>> getEvents(String? categoryId) async {
     List<EventModel> events = [];
-    var data;
+    QuerySnapshot<Map<String, dynamic>> data;
     if (categoryId == null) {
       data = await firebase.collection("Events").get();
     } else {
@@ -35,7 +43,6 @@ class DbService {
   static Stream<QuerySnapshot<Map<String, dynamic>>> getEventsStream(
     String? categoryId,
   ) {
-    // List<EventModel> events = [];
     Stream<QuerySnapshot<Map<String, dynamic>>> data;
     if (categoryId == null) {
       data = firebase.collection("Events").snapshots();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/constante/app_category.dart';
 import '../../../core/models/event_model.dart';
@@ -42,14 +43,18 @@ class EventProvider extends ChangeNotifier {
       EventModel(
         id: "",
         categoryId: selectedCategory.id,
-        date: selectedDateTime.toString(),
+        date: selectedDateTime != null
+            ? DateFormat.yMd().format(selectedDateTime!)
+            : "",
         desc: descController.text,
-        time: selectedTime!.format(context),
+        time: selectedTime != null ? selectedTime!.format(context) : "",
         title: titleController.text,
       ),
     );
     isLoading = false;
     notifyListeners();
-    Navigator.pop(context);
+    if (context.mounted) {
+      Navigator.pop(context);
+    }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:evently/modules/layout/screens/desc_screen.dart';
 import 'package:evently/modules/start/screens/IntroScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'modules/add_event/screens/add_event_screen.dart';
 import 'modules/auth/screens/forget_password_screen.dart';
 import 'modules/auth/screens/login_screen.dart';
 import 'modules/auth/screens/resgister_screen.dart';
+import 'modules/edit_eventl_screen/edit_event.dart';
 import 'modules/layout/screens/layout_screen.dart';
 import 'modules/splash/screens/splash_screen.dart';
 import 'modules/start/screens/start_screen.dart';
@@ -47,6 +49,9 @@ class MyApp extends StatelessWidget {
             ForgetPasswordScreen.routeName : (_) => ForgetPasswordScreen(),
             LayoutScreen.routeName : (_) => LayoutScreen(),
             AddEventScreen.routeName : (_) => AddEventScreen(),
+            DescScreen.routeName : (_) => DescScreen(),
+            EditEvent.routeName : (_) => EditEvent(),
+
           },
           initialRoute:SplashScreen.routeName,
           locale: Locale(provider.locale),

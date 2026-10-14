@@ -67,6 +67,7 @@ class AuthProvider extends ChangeNotifier {
       );
       Navigator.pushNamed(context, LayoutScreen.routeName);
     } catch (e) {
+
       if (!context.mounted) return;
       Toast.show(title: e.toString(), context: context, type: ToastType.error);
     } finally {
