@@ -1,7 +1,7 @@
 import 'package:evently/core/constante/app_category.dart';
 import 'package:evently/core/models/event_model.dart';
 import 'package:evently/core/services/db_service.dart';
-import 'package:evently/modules/edit_eventl_screen/edit_event.dart';
+import 'package:evently/modules/edit_eventl_screen/screen/edit_event.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

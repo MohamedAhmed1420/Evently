@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import 'manager/edit_event_provider.dart';
+import '../manager/edit_event_provider.dart';
 
 class EditEvent extends StatelessWidget {
   static const String routeName = "EditScreen";

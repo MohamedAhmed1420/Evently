@@ -14,7 +14,7 @@ import 'modules/add_event/screens/add_event_screen.dart';
 import 'modules/auth/screens/forget_password_screen.dart';
 import 'modules/auth/screens/login_screen.dart';
 import 'modules/auth/screens/resgister_screen.dart';
-import 'modules/edit_eventl_screen/edit_event.dart';
+import 'modules/edit_eventl_screen/screen/edit_event.dart';
 import 'modules/layout/screens/layout_screen.dart';
 import 'modules/splash/screens/splash_screen.dart';
 import 'modules/start/screens/start_screen.dart';
